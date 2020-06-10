@@ -8,20 +8,18 @@ class CardContainer extends React.Component {
     this.state = {};
   }
   componentDidMount() {
-    console.log("componentDidMount running");
     axios
       .get("https://api.github.com/users/AustinJHealy")
       .then((res) => {
         console.log(res);
         this.setState(res.data);
-        console.log(this.state);
       })
       .catch((err) => console.log(err));
   }
   render() {
     return (
       <div className="CardContainer">
-        <UserCard key={Date.now()} userdata={this.state} />
+        <UserCard userdata={this.state} />
       </div>
     );
   }
